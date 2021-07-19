@@ -6,7 +6,7 @@ import io.cucumber.junit.CucumberOptions;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"C:\\Users\\Mayur\\eclipse-workspace\\loginvalidation\\src\\test\\resources\\Login\\Login.feature"},
+@CucumberOptions(features = {"src\\test\\resources\\Login\\Login.feature"},
 
 glue = {"StepDefinition"},
 monochrome = true,
