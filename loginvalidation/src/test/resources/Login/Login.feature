@@ -8,6 +8,6 @@ Scenario: to test login with valid credentials
     When user enters valid username  "Admin"
     And User enters valid password "admin123"
     And User clicks on button submit
-    Then User should see username as "Welcome Paul"
+    Then User should see username as "Welcome Nishanth05"
 
  
