@@ -21,25 +21,20 @@ WebDriver driver;
 		
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		
-		//WebDriverManager.firefoxdriver().setup();
-		//driver = new FirefoxDriver();
-		
-		
 		driver.navigate().to("https://opensource-demo.orangehrmlive.com");
 		driver.manage().window().maximize();
 	   
 	}
-	@When("user enters valid username  {string}")
-	public void user_enters_valid_username(String username) {
+	@When("user enters valid username {string}")
+	public void user_enters_valid_username(String name) {
 	    // Write code here that turns the phrase above into concrete actions
 	   WebElement userName =  driver.findElement(By.xpath("//*[@id=\"txtUsername\"]"));
-	   userName.sendKeys(username);
+	   userName.sendKeys(name);
 	}
 	    
 	@When("User enters valid password {string}")
-	public void user_enters_valid_password(String password) {
-	    driver.findElement(By.xpath("//*[@id=\"txtPassword\"]")).sendKeys(password);
+	public void user_enters_valid_password(String pwd) {
+	    driver.findElement(By.xpath("//*[@id=\"txtPassword\"]")).sendKeys(pwd);
 	
 	}
 	@When("User clicks on button submit")
@@ -50,12 +45,31 @@ WebDriver driver;
 	@Then("User should see username as {string}")
 	public void user_should_see_username_as(String expectedUsername) {
 	    
-		String actual = driver.findElement(By.xpath("//*[@id=\"welcome\"]")).getText();
-	    
+		String actual = driver.findElement(By.xpath("//*[@id=\"welcome\"]")).getText().substring(0, 7);
 		Assert.assertEquals(actual, expectedUsername);
 		driver.close();
 	}
+	
+	@When("user enters invalid username {string}")
+	public void user_enters_invalid_username(String username) {
+	
+		   WebElement userName =  driver.findElement(By.xpath("//*[@id=\"txtUsername\"]"));
+		   userName.sendKeys(username);
+	   
+	}
+	@When("User enters invalid password {string}")
+	public void user_enters_invalid_password(String password) {
+		 driver.findElement(By.xpath("//*[@id=\"txtPassword\"]")).sendKeys(password);
+	}
+	
+	@Then("User should see message {string}")
+	public void user_should_see_message(String expectedMessage) {
+	    // Write code here that turns the phrase above into concrete actions
+	  String Actualmessage = driver.findElement(By.xpath("//*[@id=\"spanMessage\"]")).getText().trim();
+	  Assert.assertEquals(Actualmessage, expectedMessage);
+	  driver.close();
 
+	}
 
 
 }

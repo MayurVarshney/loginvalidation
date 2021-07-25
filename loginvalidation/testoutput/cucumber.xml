@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="23.895">
-<testcase classname="Login application validation" name="to test login with valid credentials" time="23.59">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="3" time="48.186">
+<testcase classname="Login application validation" name="to test login with valid credentials" time="15.111">
 <system-out><![CDATA[Given User should be on login page..........................................passed
-When user enters valid username  "Admin"....................................passed
+When user enters valid username "Admin".....................................passed
 And User enters valid password "admin123"...................................passed
 And User clicks on button submit............................................passed
-Then User should see username as "Welcome Paul".............................passed
+Then User should see username as "Welcome"..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Login application validation" name="to test login with valid credentials 2" time="13.604">
+<system-out><![CDATA[Given User should be on login page..........................................passed
+When user enters valid username "Admin".....................................passed
+And User enters valid password "admin123"...................................passed
+And User clicks on button submit............................................passed
+Then User should see username as "Welcome"..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Login application validation" name="to test login with valid credentials 3" time="19.126">
+<system-out><![CDATA[Given User should be on login page..........................................passed
+When user enters invalid username "Mayur"...................................passed
+And User enters invalid password "Mayur"....................................passed
+And User clicks on button submit............................................passed
+Then User should see message "Invalid credentials"..........................passed
 ]]></system-out>
 </testcase>
 </testsuite>
